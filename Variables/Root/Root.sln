@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithoutArrays", "WithoutArrays\WithoutArrays.csproj", "{D3768DB7-1D5A-4A40-B44C-1265C18EF7E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Root.2GenerationOfCombinatorialObjects", "Root.2GenerationOfCombinatorialObjects\Root.2GenerationOfCombinatorialObjects.csproj", "{70EE79DA-0F09-4FD4-A722-5707ACD4F803}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{D3768DB7-1D5A-4A40-B44C-1265C18EF7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3768DB7-1D5A-4A40-B44C-1265C18EF7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3768DB7-1D5A-4A40-B44C-1265C18EF7E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{70EE79DA-0F09-4FD4-A722-5707ACD4F803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{70EE79DA-0F09-4FD4-A722-5707ACD4F803}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{70EE79DA-0F09-4FD4-A722-5707ACD4F803}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{70EE79DA-0F09-4FD4-A722-5707ACD4F803}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
