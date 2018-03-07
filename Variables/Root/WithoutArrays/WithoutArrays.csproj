@@ -68,6 +68,10 @@
     <Compile Include="Tests.cs" />
     <Compile Include="_1_1_3.cs" />
     <Compile Include="_1_1_4.cs" />
+    <Compile Include="_1_1_6.cs" />
+    <Compile Include="_1_1_7.cs" />
+    <Compile Include="_1_1_8.cs" />
+    <Compile Include="_1_1_9.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

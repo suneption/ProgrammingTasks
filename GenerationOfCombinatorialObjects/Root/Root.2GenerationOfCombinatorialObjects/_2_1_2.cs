@@ -10,7 +10,6 @@ namespace Root._2GenerationOfCombinatorialObjects
         public List<int[]> Run(int k, int n)
         {
             var initial = Enumerable.Range(0, k).Select(x => 0).ToArray();
-            var last = Enumerable.Range(0, k).Select(x => n).ToArray();
 
             var result = new List<int[]>();
             result.Add(initial);
