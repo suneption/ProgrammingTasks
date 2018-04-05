@@ -94,70 +94,74 @@ namespace _5_1_2
             var result = new List<char>();
             var buffer = new Queue<char>();
 
-            foreach (var ch in input)
+            var i = 0;
+            while (i < input.Length)
             {
+                var currentCh = input[i];
                 switch (state)
                 {
                     case StatesOfGeneralSolution.Main:
-                        if (ch == PATTERN.First())
+                        if (currentCh == PATTERN.First())
                         {
+                            buffer.Enqueue(currentCh);
                             state = StatesOfGeneralSolution.After;
-                            buffer.Enqueue(ch);
                         }
                         else
                         {
-                            result.Add(ch);
+                            result.Add(currentCh);
                         }
                         break;
                     case StatesOfGeneralSolution.After:
                         var expectedCh = PATTERN.Skip(buffer.Count).First();
-                        if (expectedCh == ch)
+                        if (expectedCh == currentCh)
                         {
-                            buffer.Enqueue(ch);
+                            buffer.Enqueue(currentCh);
                             if (buffer.Count == PATTERN.Length - 1)
                             {
                                 state = StatesOfGeneralSolution.Ending;
                             }
                         }
-                        else if (ch == PATTERN.First())
+                        else if (currentCh == PATTERN.First())
                         {
                             result.AddRange(buffer);
                             buffer.Clear();
-                            buffer.Enqueue(ch);
-                            state = StatesOfGeneralSolution.After;
+                            i--;
+                            state = StatesOfGeneralSolution.Main;
                         }
                         else
                         {
                             result.AddRange(buffer);
                             buffer.Clear();
-                            result.Add(ch);
+                            result.Add(currentCh);
                             state = StatesOfGeneralSolution.Main;
                         }
                         break;
                     case StatesOfGeneralSolution.Ending:
-                        if (PATTERN.Last() == ch)
+                        if (PATTERN.Last() == currentCh)
                         {
                             buffer.Clear();
                             state = StatesOfGeneralSolution.Main;
                         }
-                        else if (ch == PATTERN.First())
+                        else if (currentCh == PATTERN.First())
                         {
                             result.AddRange(buffer);
                             buffer.Clear();
-                            buffer.Enqueue(ch);
-                            state = StatesOfGeneralSolution.After;
+                            i--;
+                            state = StatesOfGeneralSolution.Main;
                         }
                         else
                         {
                             result.AddRange(buffer);
                             buffer.Clear();
-                            result.Add(ch);
+                            result.Add(currentCh);
                             state = StatesOfGeneralSolution.Main;
                         }
                         break;
                     default:
                         break;
                 }
+
+                i++;
             }
 
             var output = string.Join("", result);
