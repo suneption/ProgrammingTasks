@@ -1,0 +1,3 @@
+begin {begin of cycle}
+i:=i+1; {increase i by 1}
+{{enclose comment} other comment}

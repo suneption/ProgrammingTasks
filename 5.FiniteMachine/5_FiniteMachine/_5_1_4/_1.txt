@@ -1,0 +1,7 @@
+begin {begin of cycle}
+i:=i+1; {increase i by 1}
+
+"string { string } string"
+{comment "comment" comment}
+
+{{enclose comment} other comment}
