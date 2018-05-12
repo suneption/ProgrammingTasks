@@ -54,24 +54,37 @@ namespace _5_2_2
             return (state == States.Accept, value);
         }
 
+        private static (States newState, double newValue) InitialState(char current, double value)
+        {
+            States newState;
+            var newValue = value;
+
+            if (current == ' ')
+            {
+                newState = States.Initial;
+            }
+            else if (char.IsDigit(current))
+            {
+                newState = States.IntPart;
+                newValue = int.Parse(current.ToString());
+            }
+            else
+            {
+                newState = States.Error;
+            }
+
+            return (newState, newValue);
+        }
+
         private static (States newState, double newValue, double newStep) GoToNewState(States state, char current, double value, double step)
         {
             States newState;
+            var newValue = value;
+            var newStep = step;
+
             if (state == States.Initial)
             {
-                if (current == ' ')
-                {
-                    newState = States.Initial;
-                }
-                else if (char.IsDigit(current))
-                {
-                    newState = States.IntPart;
-                    value = int.Parse(current.ToString());
-                }
-                else
-                {
-                    newState = States.Error;
-                }
+                (newState, newValue) = InitialState(current, value);
             }
             else if (state == States.IntPart)
             {
@@ -84,7 +97,7 @@ namespace _5_2_2
                 else if (current == '.')
                 {
                     newState = States.DecPoint;
-                    step = 0.1;
+                    newStep = 0.1;
                 }
                 else
                 {
@@ -96,7 +109,7 @@ namespace _5_2_2
                 if (char.IsDigit(current))
                 {
                     newState = States.FracPart;
-                    var (newValue, newStep) = AddFracPart(value, current, step);
+                    (newValue, newStep) = AddFracPart(value, current, step);
                     value = newValue;
                     step = newStep;
                 }
@@ -110,7 +123,7 @@ namespace _5_2_2
                 if (char.IsDigit(current))
                 {
                     newState = States.FracPart;
-                    var (newValue, newStep) = AddFracPart(value, current, step);
+                    (newValue, newStep) = AddFracPart(value, current, step);
                     value = newValue;
                     step = newStep;
                 }
